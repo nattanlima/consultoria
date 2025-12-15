@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prisme Sales | Soluções Avançadas para WhatsApp e Meta</title>
+    <meta name="description" content="Escale seu atendimento com segurança. Consultoria especializada, verificação de BM e automações com IA.">
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/nattanlima/meu-crm-pwa/main/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/nattanlima/meu-crm-pwa/main/icons/favicon-16x16.png">
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/nattanlima/meu-crm-pwa/main/icons/favicon-16x16.ico">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            green: '#00C38D', // Verde Prisme aproximado
+                            dark: '#1e1b4b',
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Utilities */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #059669 0%, #4F46E5 100%); /* Verde p/ Indigo */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Custom Green Button Style */
+        .btn-primary {
+            background-color: #10B981; /* Emerald 500 */
+        }
+        .btn-primary:hover {
+            background-color: #059669; /* Emerald 600 */
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+
+    <!-- Hero Section (Sem Navbar) -->
+    <section class="relative pt-20 pb-20 lg:pt-32 lg:pb-32 overflow-hidden">
+        <!-- Background Decor -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full z-0 pointer-events-none">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-emerald-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float"></div>
+            <div class="absolute top-20 right-10 w-72 h-72 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float" style="animation-delay: 2s"></div>
+            <div class="absolute -bottom-8 left-1/3 w-72 h-72 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float" style="animation-delay: 4s"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <!-- Logo Centralizada -->
+            <div class="flex justify-center mb-10 animate-fade-in-up">
+                <span class="text-4xl font-bold text-slate-900 tracking-tight">Prisme Sales</span>
+            </div>
+
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 font-semibold text-sm mb-8 animate-fade-in-up" style="animation-delay: 0.1s">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                Especialistas em Ecossistema Meta & IA
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6 animate-fade-in-up" style="animation-delay: 0.2s">
+                Transforme seu WhatsApp em uma <br class="hidden md:block">
+                <span class="gradient-text">Máquina de Vendas Blindada</span>
+            </h1>
+            
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-600 mb-10 animate-fade-in-up" style="animation-delay: 0.3s">
+                Evite bloqueios, profissionalize sua API e escale o atendimento com Inteligência Artificial. A infraestrutura que sua empresa precisa para crescer.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.4s">
+                <a href="#solucoes" class="px-8 py-4 bg-emerald-600 text-white rounded-xl font-bold text-lg shadow-xl shadow-emerald-200 hover:bg-emerald-700 hover:scale-105 transition-all flex items-center justify-center gap-2">
+                    Ver Soluções
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+                <a href="https://wa.me/5524992592320" target="_blank" class="px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold text-lg hover:border-emerald-300 hover:text-emerald-600 transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    Conversar no WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem/Agitation Section -->
+    <section class="py-16 bg-white border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-shadow reveal">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4 text-red-600">
+                        <i data-lucide="ban" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Bloqueios Constantes?</h3>
+                    <p class="text-slate-600">Perder números de WhatsApp paralisa sua operação. Estruturamos sua contingência para mitigar riscos.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-shadow reveal" style="transition-delay: 0.1s">
+                    <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4 text-amber-600">
+                        <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">BM em Risco?</h3>
+                    <p class="text-slate-600">Sem a verificação correta na Meta, seus anúncios podem cair a qualquer momento. Nós resolvemos isso.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-shadow reveal" style="transition-delay: 0.2s">
+                    <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4 text-emerald-600">
+                        <i data-lucide="bot" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Atendimento Lento?</h3>
+                    <p class="text-slate-600">Seus leads esfriam esperando resposta. Automatize com IA e responda instantaneamente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Pricing Section -->
+    <section id="solucoes" class="py-24 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-4">Nossas Soluções</h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                    Do estratégico ao técnico. Escolha o pacote ideal para o momento atual da sua operação.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 items-start">
+                
+                <!-- Product 1: Consultoria -->
+                <div class="bg-white rounded-2xl shadow-xl shadow-slate-200/50 overflow-hidden border border-slate-100 hover:border-emerald-300 transition-all duration-300 hover:-translate-y-2 reveal h-full flex flex-col">
+                    <div class="p-8 border-b border-slate-50">
+                        <div class="inline-block px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full text-xs font-bold uppercase tracking-wide mb-4">Estratégico</div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Consultoria de Fluxo</h3>
+                        <p class="text-slate-500 text-sm mb-6">Definição técnica e arquitetura de vendas.</p>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-sm text-slate-500">R$</span>
+                            <span class="text-4xl font-extrabold text-slate-900 tracking-tight">1.000</span>
+                            <span class="text-slate-400 font-medium">/único</span>
+                        </div>
+                    </div>
+                    <div class="p-8 flex-grow bg-slate-50/50">
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="text-slate-700 text-sm"><strong>Reunião de Diagnóstico</strong> (1h30)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="text-slate-700 text-sm"><strong>Definição de API:</strong> Oficial vs WAPI vs BSP</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="text-slate-700 text-sm"><strong>Planejamento COEX:</strong> Estrutura de coexistência de números</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="text-slate-700 text-sm"><strong>Cálculo de Capacidade:</strong> Quantidade exata de chips necessária</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="file-text" class="w-5 h-5 text-slate-400 shrink-0 mt-0.5"></i>
+                                <span class="text-slate-500 text-sm">Entregável: PDF Action Plan</span>
+                            </li>
+                        </ul>
+                        <a href="#contato" class="block w-full py-3 px-4 bg-white border-2 border-emerald-600 text-emerald-700 font-bold rounded-xl text-center hover:bg-emerald-50 transition-colors">
+                            Agendar Consultoria
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 2: Verificação (Featured) -->
+                <div class="bg-slate-900 rounded-2xl shadow-2xl shadow-emerald-500/20 overflow-hidden border border-slate-800 hover:-translate-y-2 transition-all duration-300 reveal relative" style="transition-delay: 0.1s">
+                    <div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-emerald-500 via-green-400 to-emerald-500"></div>
+                    <div class="p-8 border-b border-slate-800">
+                        <div class="inline-block px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-bold uppercase tracking-wide mb-4">Segurança & Risco</div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Verificação Meta</h3>
+                        <p class="text-slate-400 text-sm mb-6">Proteção jurídica e técnica para sua conta.</p>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-sm text-slate-400">R$</span>
+                            <span class="text-4xl font-extrabold text-white tracking-tight">1.500</span>
+                            <span class="text-slate-500 font-medium">/único</span>
+                        </div>
+                    </div>
+                    <div class="p-8 flex-grow">
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="shield-check" class="w-5 h-5 text-green-400 shrink-0 mt-0.5"></i>
+                                <span class="text-slate-200 text-sm"><strong>Verificação de BM</strong> (Business Manager)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+                                <span class="text-slate-300 text-sm">Organização de documentos empresariais</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+                                <span class="text-slate-300 text-sm">Aumento de limites de envio (Tier Upgrade)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+                                <span class="text-slate-300 text-sm">Mitigação de risco de banimento</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+                                <span class="text-slate-300 text-sm">Configuração oficial do WhatsApp API</span>
+                            </li>
+                        </ul>
+                        <a href="#contato" class="block w-full py-4 px-4 bg-emerald-600 text-white font-bold rounded-xl text-center hover:bg-emerald-500 transition-colors shadow-lg shadow-emerald-900/50">
+                            Blindar Minha Operação
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 3: IA & Fluxos -->
+                <div class="bg-white rounded-2xl shadow-xl shadow-slate-200/50 overflow-hidden border border-slate-100 hover:border-purple-300 transition-all duration-300 hover:-translate-y-2 reveal h-full flex flex-col" style="transition-delay: 0.2s">
+                    <div class="p-8 border-b border-slate-50">
+                        <div class="inline-block px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-xs font-bold uppercase tracking-wide mb-4">Automação & IA</div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Fluxos de IA</h3>
+                        <p class="text-slate-500 text-sm mb-6">Inteligência artificial para escalar vendas.</p>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-extrabold text-slate-900 tracking-tight">A Combinar</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-1">Sob orçamento personalizado</p>
+                    </div>
+                    <div class="p-8 flex-grow bg-slate-50/50">
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="sparkles" class="w-5 h-5 text-purple-600 shrink-0 mt-0.5"></i>
+                                <span class="text-slate-700 text-sm"><strong>Construção de Chatbots</strong> Humanizados</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-purple-600 shrink-0 mt-0.5"></i>
+                                <span class="text-slate-700 text-sm">Integração com CRM e Sistemas</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-purple-600 shrink-0 mt-0.5"></i>
+                                <span class="text-slate-700 text-sm">Treinamento de IA com dados da sua empresa</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-purple-600 shrink-0 mt-0.5"></i>
+                                <span class="text-slate-700 text-sm">Recuperação automática de carrinho/boleto</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-purple-600 shrink-0 mt-0.5"></i>
+                                <span class="text-slate-700 text-sm">Dashboard de Métricas em Tempo Real</span>
+                            </li>
+                        </ul>
+                        <a href="#contato" class="block w-full py-3 px-4 bg-slate-100 text-slate-700 font-bold rounded-xl text-center hover:bg-slate-200 transition-colors">
+                            Solicitar Orçamento
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Methodology Section (For Product 1) -->
+    <section id="metodo" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-6">Por que uma <span class="text-emerald-600">Consultoria de Fluxo</span> é essencial?</h2>
+                    <p class="text-slate-600 mb-6">
+                        Muitas empresas falham ao tentar implementar a API Oficial ou WAPI sem planejamento. O resultado são custos excessivos ou bloqueios imediatos.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
+                                <span class="font-bold text-emerald-700">1</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">API Oficial vs. Não Oficial</h4>
+                                <p class="text-sm text-slate-500 mt-1">Analisamos seu volume de mensagens para decidir: pagar por conversa (Meta) ou custo fixo (Não-oficial)?</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
+                                <span class="font-bold text-emerald-700">2</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Coexistência (COEX)</h4>
+                                <p class="text-sm text-slate-500 mt-1">Como manter números de aquecimento rodando simultaneamente aos números de disparo para garantir longevidade.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
+                                <span class="font-bold text-emerald-700">3</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Plano de Ação</h4>
+                                <p class="text-sm text-slate-500 mt-1">Você sai da reunião com um PDF detalhando o passo a passo da implementação.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative reveal" style="transition-delay: 0.2s">
+                    <!-- Decorative Graphic -->
+                    <div class="aspect-square rounded-3xl bg-gradient-to-tr from-emerald-600 to-teal-500 p-8 shadow-2xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl"></div>
+                        <div class="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-2xl"></div>
+                        
+                        <div class="h-full w-full bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 p-6 flex flex-col justify-between text-white">
+                            <div>
+                                <div class="text-sm font-medium opacity-80 mb-1">Status da Operação</div>
+                                <div class="text-2xl font-bold flex items-center gap-2">
+                                    <i data-lucide="shield-check" class="w-6 h-6 text-green-300"></i>
+                                    Blindada
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-3">
+                                <div class="h-2 bg-white/20 rounded-full overflow-hidden">
+                                    <div class="h-full w-[98%] bg-green-400"></div>
+                                </div>
+                                <div class="flex justify-between text-sm opacity-90">
+                                    <span>Saúde do Chip</span>
+                                    <span>98%</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-white/10 rounded-xl p-4 mt-4">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 rounded-full bg-green-400 flex items-center justify-center">
+                                        <i data-lucide="check" class="w-5 h-5 text-emerald-900"></i>
+                                    </div>
+                                    <div class="text-sm font-medium">Verificação Concluída</div>
+                                </div>
+                                <div class="text-xs opacity-70 leading-relaxed">
+                                    Sua BM está verificada e pronta para escalar com múltiplos números via API.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact CTA -->
+    <section id="contato" class="bg-slate-900 py-20 text-white border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Pronto para profissionalizar sua operação?</h2>
+            <p class="text-slate-400 mb-10 max-w-xl mx-auto">
+                Não deixe sua empresa vulnerável a bloqueios. Agende sua consultoria ou inicie a verificação hoje mesmo.
+            </p>
+            
+            <form id="contactForm" class="bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-sm shadow-2xl max-w-lg mx-auto text-left">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-1">Seu Nome</label>
+                        <input type="text" id="personName" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-emerald-500 transition-colors" placeholder="Seu Nome">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-1">Nome da Empresa</label>
+                        <input type="text" id="companyName" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-emerald-500 transition-colors" placeholder="Sua Empresa">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-1">WhatsApp</label>
+                        <input type="tel" id="whatsapp" required class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-emerald-500 transition-colors" placeholder="(00) 00000-0000">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-1">Interesse em:</label>
+                        <select id="interest" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-emerald-500 transition-colors appearance-none">
+                            <option>Consultoria de Fluxo (R$ 1.000)</option>
+                            <option>Verificação de BM (R$ 1.500)</option>
+                            <option>Projeto de Automação IA</option>
+                        </select>
+                    </div>
+                    <button type="submit" id="submitBtn" class="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl transition-all shadow-lg shadow-emerald-900/50 mt-4">
+                        Enviar Solicitação
+                    </button>
+                </div>
+                <p class="text-center text-xs text-slate-500 mt-4">
+                    Seus dados estão protegidos. Entraremos em contato em até 24h.
+                </p>
+            </form>
+            
+            <!-- Footer Info Section -->
+            <div class="mt-20 pt-10 border-t border-slate-800 text-left">
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <!-- Brand Description -->
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="font-bold text-xl text-white">Prisme Sales</span>
+                        </div>
+                        <p class="text-slate-400 text-sm leading-relaxed max-w-sm">
+                            Conectamos a sua empresa ao seu cliente, de forma humanizada. Especialistas em WhatsApp Business, automações com IA e proteção de contas Meta.
+                        </p>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="flex flex-col md:items-end justify-center">
+                        <span class="text-slate-300 font-medium mb-3">Siga a gente:</span>
+                        <div class="flex gap-4">
+                            <a href="https://instagram.com/prisme.sales" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-pink-600 hover:text-white transition-all duration-300 group" aria-label="Instagram">
+                                <i data-lucide="instagram" class="w-5 h-5"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@fazqvende" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-white hover:bg-red-600 hover:text-white transition-all duration-300 group" aria-label="YouTube">
+                                <i data-lucide="youtube" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Legal & Copyright -->
+                <div class="border-t border-slate-800 pt-8 text-xs text-slate-500 space-y-2">
+                    <p>© 2025 PrismeApp. Todos os direitos reservados. | CNPJ: 34.322.622/0001-58</p>
+                    <p>O Chatbot da PrismeApp respeita a Lei Geral de Proteção de Dados Pessoais (LGPD), Lei n° 13.709/2018, e não comercializa dados terceiros.</p>
+                    <div class="pt-4 mt-2">
+                        Feito por <span class="text-slate-400 font-medium">Lima Consultoria</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Form Logic Handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('submitBtn');
+            const originalText = btn.innerText;
+            btn.innerText = 'Enviando...';
+            btn.disabled = true;
+            btn.classList.add('opacity-75', 'cursor-not-allowed');
+
+            const data = {
+                nome: document.getElementById('personName').value,
+                empresa: document.getElementById('companyName').value,
+                whatsapp: document.getElementById('whatsapp').value,
+                interesse: document.getElementById('interest').value,
+                data_solicitacao: new Date().toISOString()
+            };
+
+            // Envio para o Webhook n8n
+            fetch('https://prismen8n.prismeapp.com.br/webhook/formulario', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Solicitação enviada com sucesso! Entraremos em contato em breve.');
+                    e.target.reset();
+                } else {
+                    throw new Error('Falha no envio');
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Obrigado! Recebemos seus dados e entraremos em contato via WhatsApp.');
+                e.target.reset(); // Reseta mesmo com erro de CORS/Network se desejado, ou mantenha os dados
+            })
+            .finally(() => {
+                btn.innerText = originalText;
+                btn.disabled = false;
+                btn.classList.remove('opacity-75', 'cursor-not-allowed');
+            });
+        });
+    </script>
+</body>
+</html>
